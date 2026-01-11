@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Stay Organized</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="icon">✓</span>
+                    My Todo List
+                </h1>
+                <p class="subtitle">Stay organized and productive</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="todo-form-container">
+                <form id="todoForm" class="todo-form">
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            id="todoTitle" 
+                            class="input-field" 
+                            placeholder="What needs to be done?"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <textarea 
+                            id="todoDescription" 
+                            class="textarea-field" 
+                            placeholder="Add a description (optional)"
+                            rows="3"
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon">+</span>
+                        Add Task
+                    </button>
+                </form>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTodos">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="activeTodos">0</span>
+                    <span class="stat-label">Active</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTodos">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <div id="todoList" class="todo-list">
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">📝</div>
+                    <p class="empty-text">No tasks yet. Add one above to get started!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
